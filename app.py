@@ -15,11 +15,11 @@ def criar_task():
     global task_id_control # declarar funcao global 
     data = request.get_json()  
 
-    nova_task = Task(id=task_id_control,title=data.get('title'),description=data.get('description'))
+    new_task = Task(id=task_id_control,title=data.get('title'),description=data.get('description'))
     task_id_control += 1
-    tasks.append(nova_task)
-    print(nova_task)
-    return jsonify(nova_task.to_dict()), 201
+    tasks.append(new_task)
+    print(tasks)
+    return jsonify({"menssagem": " Nova Tarefa criada com sucesso", "id": new_task.id}), 200
 
     # funcao de rota GET 
 @app.route("/tasks",methods=['GET'])
